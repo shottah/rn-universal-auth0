@@ -1,18 +1,20 @@
-# Auth0 React Native Samples - Login
+# rn-universal-auth0
 
-The complete guide to getting started with [react-native-auth0](https://github.com/auth0/react-native-auth0) is our [React Native QuickStart](https://auth0.com/docs/quickstart/native/react-native/00-login).
+This repo is based on one of Auth0's starter apps that use react-native-auth0 SDK to surface the Universal Login web modal on native devices.
+
+## Overview
+
+The Auth0 web modal built in to react-native-auth0 SDK is not very native, as such this repo endeavours to implement a react native webview that seemlessly surfaces the universal login experience to the end user.
 
 ## 1. Install
 
 Clone the repository and install the dependencies with [Yarn](https://yarnpkg.com):
 
 ```bash
-git clone git@github.com:auth0-samples/auth0-react-native-sample.git
-cd auth0-react-native-sample/00-login-hooks
 yarn install
 ```
 
-### iOS Applications only
+### iOS Applications Only
 
 Change the directory into the `ios` folder and run the following command to install the SDK pod with [CocoaPods](https://cocoapods.org/):
 
@@ -21,35 +23,15 @@ cd ios
 pod install
 ```
 
+or 
+
+```bash
+npx pod-install
+```
+
 You should see the `A0Auth0` pod being installed and linked to the sample app.
 
-### Android applications only
-
-Open the `android/app/build.gradle` file and locate the following manifest placeholders:
-
-```groovy
-android {
-    defaultConfig {
-        manifestPlaceholders = [auth0Domain: "YOUR_AUTH0_DOMAIN",
-                                auth0Scheme: "${applicationId}"]
-    }
-    ...
-}
-```
-
-Replace `YOUR_AUTH0_DOMAIN` with your Auth0 domain value. If you have `samples.auth0.com` as your Auth0 domain you would have a configuration like the following:
-
-```groovy
-android {
-    defaultConfig {
-        manifestPlaceholders = [auth0Domain: "samples.auth0.com",
-                                auth0Scheme: "${applicationId}"]
-    }
-    ...
-}
-```
-
-The `applicationId` value will be auto-replaced at runtime with the package name or ID of your application (e.g. `com.example.app`).
+> As a proof of concept, this app will only be configured for iOS.
 
 ## 2. Configure Auth0
 
